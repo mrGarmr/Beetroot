@@ -22,8 +22,11 @@
 def logger(func):
     def wrapper(*args):
         result = ', '.join([str(i) for i in args])
+        
         print(f'{func.__name__} called with {result}')
+        
         return func(*args)
+    
     return wrapper
 
 @logger

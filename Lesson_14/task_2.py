@@ -20,14 +20,18 @@
 def stop_words(words: list):
     def decorator(func):
         def wrapper(*args):
+            
             data = func(*args)
             data = data.split()
             result = []
+            
             for i in data:
                 for j in words:
                     if i in words or j in i:
                         i=i.replace(j,'*')
+                        
                 result.append(i)
+                
             result = ' '.join(result)
             return result
         return wrapper
