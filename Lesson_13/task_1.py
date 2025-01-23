@@ -10,7 +10,9 @@ def function():
     f = 3
 
     result = len(locals())
+    
     print(f'In this function we have {result} local variables declared.')
+    
     return result
 
 function()

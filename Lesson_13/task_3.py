@@ -3,8 +3,10 @@
 # Otherwise, return the result of the second one
 
 def choose_func(nums: list, func1, func2):
+    
     if all(num > 0 for num in nums):
         return func1(nums)
+    
     else:
         return func2(nums)
  
@@ -22,6 +24,7 @@ def remove_negatives(nums):
     return [num for num in nums if num > 0]
 
 print(choose_func(nums1, square_nums, remove_negatives))
+
 print(choose_func(nums2, square_nums, remove_negatives))
 
 assert choose_func(nums1, square_nums, remove_negatives) == [1, 4, 9, 16, 25]
