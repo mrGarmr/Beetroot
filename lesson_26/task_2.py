@@ -1,3 +1,6 @@
+# Прочитати про Fibonacci search та імплементуйте його за допомогою Python. Визначте складність алгоритму та порівняйте його з бінарним пошуком
+
+
 def fibonacci_search(arr, target):
     def get_fibonacci_numbers(n):
         fib = [0, 1]

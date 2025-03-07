@@ -6,6 +6,8 @@ class Node:
         self.next = None
 
 class Stack:
+    '''Implementation a stack using a singly linked list.'''
+
     def __init__(self):
         self.top = None  # Head of the linked list is the top of the stack
         self.size = 0    # Track the number of elements
@@ -43,13 +45,17 @@ class Stack:
     # Display the stack (for testing)
     def __str__(self):
         if self.is_empty():
-            return "[]"
+            return '[]'
         items = []
         current = self.top
         while current:
             items.append(str(current.data))
             current = current.next
-        return "[" + ", ".join(items) + "]"
+        result = '['
+        for item in items:
+            result += item + ', '
+        result = result[:-2] +']'
+        return result
 
 # Testing the implementation
 if __name__ == "__main__":
@@ -59,22 +65,26 @@ if __name__ == "__main__":
     stack.push(1)
     stack.push(2)
     stack.push(3)
+    # assert(stack == '[3, 2, 1]')
     print("After push 1, 2, 3:", stack)  # [3, 2, 1]
     
     # Test peek
+    assert(stack.peek() == 3)
     print("Top item (peek):", stack.peek())  # 3
     
     # Test pop
     popped = stack.pop()
+    assert(popped == 3)
     print("Popped item:", popped)  # 3
     print("After pop:", stack)    # [2, 1]
     
     # Test size
+    assert(stack.get_size() == 2)
     print("Stack size:", stack.get_size())  # 2
     
     # Test empty pop
     stack.pop()
-    stack.pop()
+    # assert(stack == '[]')
     print("After popping all:", stack)  # []
     try:
         stack.pop()

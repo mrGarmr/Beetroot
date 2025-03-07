@@ -1,3 +1,9 @@
+
+# Програма мінімум:
+
+# Реалізувати алгоритм бінарного пошуку за допомогою рекурсії.
+
+
 def binary_search_recursive(arr, target, left, right):
     # Базовий випадок: якщо left > right, елемент не знайдено
     if left > right:
