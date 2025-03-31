@@ -1,0 +1,27 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нотатки</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Мої Нотатки</h1>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <strong>{{ note.title }}</strong> - {{ note.text }} 
+                <br>
+                Категорія: {{ note.category.title }}
+                <br>
+                Нагадування: {{ note.reminder }}
+            </li>
+        {% empty %}
+            <p>Немає нотаток.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
