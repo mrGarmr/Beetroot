@@ -1,0 +1,40 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нотатки</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <h1>My notes</h1>
+    <ul>
+        Do you want to create your new note?
+        <a href="{% url 'create_note' %}">Create</a>
+    </ul>
+
+    
+    <ul>
+        <hr>
+        {% for note in notes %}
+
+        <li>
+            <a href="{% url 'note_info' note.id %}"> <strong>{{ note.title }}</strong> - {{ note.text }} </a>
+            <br>
+            Category: {{ note.category.title }}
+            <br>
+            Riminder: {{ note.reminder }}
+            <br>
+            <a href="{% url 'edit_note' note.id %}">Edit note</a>
+            <a href="{% url 'delete_note' note.id %}">Delete note</a>
+
+            <hr>
+        </li>
+        
+        {% endfor %}
+    </div>
+</body>
+</html>
